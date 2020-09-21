@@ -9,7 +9,7 @@ function RothAnalytics() {
 
   return (
     retirementBalance > 0 && (
-      <div className="roth-analytics">
+      <div className="analytics-container">
         <h2>Analytics</h2>
         <h3>
           Your retirement balance could be $<u>{retirementBalanceFormatted}</u>

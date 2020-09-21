@@ -16,14 +16,13 @@ function RothContextProvider(props) {
       ...form,
       [name]: value,
     });
-    console.log(name, value);
   }
 
   function calculateRoth() {
     let total = parseInt(form.startingBalance);
     let age = parseInt(form.currentAge);
     let annualContribution = parseInt(form.annualContribution);
-    let retirementData = [];
+    let rothData = [];
     let retirementBalance = 0;
 
     for (age; age <= form.retirementAge; age++) {
@@ -34,23 +33,23 @@ function RothContextProvider(props) {
         ).toFixed(2)
       );
 
-      retirementData.push({
+      rothData.push({
         age: age,
         total: total,
       });
       retirementBalance = total;
     }
-    return { retirementData, retirementBalance };
+    return { rothData, retirementBalance };
   }
 
-  let { retirementData, retirementBalance } = calculateRoth();
+  let { rothData, retirementBalance } = calculateRoth();
 
   return (
     <RothContext.Provider
       value={{
         form,
         updateForm,
-        rothData: retirementData,
+        rothData,
         retirementBalance,
       }}
     >
