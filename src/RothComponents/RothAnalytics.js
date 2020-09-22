@@ -6,7 +6,10 @@ function RothAnalytics() {
   let annualContribution = form.annualContribution;
 
   const retirementBalanceFormatted = retirementBalance.toLocaleString("en");
-
+  const totalContribution = (
+    (form.retirementAge - form.currentAge + 1) *
+    annualContribution
+  ).toLocaleString("en");
   return (
     retirementBalance > 0 && (
       <div className="analytics-container">
@@ -19,6 +22,8 @@ function RothAnalytics() {
           Weekly Contribution: ${(annualContribution / 52).toFixed(2)}
           <br />
           Daily Contribution: ${(annualContribution / 365).toFixed(2)}
+          <br />
+          Total Contribution: ${totalContribution}
         </h3>
       </div>
     )

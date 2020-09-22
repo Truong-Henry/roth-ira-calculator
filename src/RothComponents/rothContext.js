@@ -7,7 +7,7 @@ function RothContextProvider(props) {
     retirementAge: 65,
     startingBalance: 0,
     annualContribution: 5500,
-    expectedReturn: 7,
+    return: 7,
   });
 
   function updateForm(event) {
@@ -24,18 +24,19 @@ function RothContextProvider(props) {
     let annualContribution = parseInt(form.annualContribution);
     let rothData = [];
     let retirementBalance = 0;
+    let totalContribution = 0;
 
     for (age; age <= form.retirementAge; age++) {
       total = parseFloat(
-        (
-          (total + annualContribution) *
-          (1 + form.expectedReturn / 100)
-        ).toFixed(2)
+        ((total + annualContribution) * (1 + form.return / 100)).toFixed(2)
       );
+
+      totalContribution += annualContribution;
 
       rothData.push({
         age: age,
         total: total,
+        totalContribution: totalContribution,
       });
       retirementBalance = total;
     }
