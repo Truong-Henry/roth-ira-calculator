@@ -5,7 +5,7 @@ function RothForm() {
   const { form, updateForm } = useContext(RothContext);
   return (
     <>
-      <div className="row justify-content-center align-items-center form-container">
+      <div className="row justify-content-center align-items-center">
         <form>
           <div className="col-md-1"></div>
           <div className="form-group col-xs-12 col-md-2">
@@ -13,13 +13,14 @@ function RothForm() {
               Current Age
             </label>
             <input
-              className="form-control mb-2 mr-sm-2"
+              className="form-control"
               name="currentAge"
               id="currentAge"
               type="number"
               value={form.currentAge}
               onChange={updateForm}
               min={0}
+              required
             />
           </div>
           <div className="form-group col-xs-12 col-md-2">
@@ -27,7 +28,7 @@ function RothForm() {
               Retirement Age
             </label>
             <input
-              className="form-control mb-2 mr-sm-2"
+              className="form-control"
               name="retirementAge"
               id="retirementAge"
               placeholder="Retirement Age"
@@ -43,7 +44,7 @@ function RothForm() {
               Starting Balance
             </label>
             <input
-              className="form-control mb-2 mr-sm-2"
+              className="form-control"
               name="startingBalance"
               id="startingBalance"
               placeholder="Starting Balance"
@@ -58,7 +59,7 @@ function RothForm() {
               Contribution
             </label>
             <input
-              className="form-control mb-2 mr-sm-2"
+              className="form-control"
               name="annualContribution"
               id="annualContribution"
               placeholder="Annual Contribution"
@@ -70,16 +71,16 @@ function RothForm() {
             />
           </div>
           <div className="form-group col-xs-12 col-md-2">
-            <label htmlFor="expectedReturn" className="control-label">
-              Expected Return
+            <label htmlFor="return" className="control-label">
+              Return %
             </label>
             <input
-              className="form-control mb-2 mr-sm-2"
-              name="expectedReturn"
-              id="expectedReturn"
-              placeholder="Expected Return (%)"
+              className="form-control"
+              name="return"
+              id="return"
+              placeholder="Return (%)"
               type="number"
-              value={form.expectedReturn}
+              value={form.return}
               onChange={updateForm}
               min={0}
               max={100}

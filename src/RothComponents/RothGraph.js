@@ -10,48 +10,71 @@ import {
   YAxis,
   Tooltip,
   Label,
+  Legend,
 } from "recharts";
 
 function RothGraph() {
   const { rothData } = useContext(RothContext);
+  const color = {
+    totalBalance: "#82ca9d",
+    totalContribution: "#5bb1cd",
+  };
 
-  const renderGraph = (
-    <div className="row graph-container">
-      <div className="col-sm">
-        <div className="roth-graph" width="100%" height="100%">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart
-              data={rothData}
-              margin={{ top: 50, right: 50, left: 50, bottom: 50 }}
-            >
-              <CartesianGrid strokeDasharray="5" vertical={false} />
-              <XAxis dataKey="age" name="age">
-                <Label value="Age" offset={-10} position="insideBottom" />
-              </XAxis>
-              <YAxis
-                tickFormatter={(tick) => "$" + tick.toLocaleString()}
-              ></YAxis>
-              <Tooltip
-                formatter={(value) =>
-                  "$" + new Intl.NumberFormat("en").format(value)
-                }
-              />
-              <Area
-                type="monotone"
-                dataKey="total"
-                name="Total"
-                stackId="1"
-                stroke="#0"
-                fill="#82ca9d"
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
+  return (
+    <div className="roth-graph" width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart
+          data={rothData}
+          margin={{ top: 50, right: 50, left: 50, bottom: 50 }}
+        >
+          <CartesianGrid strokeDasharray="5" vertical={false} />
+          <XAxis dataKey="age" name="age">
+            <Label value="Age" offset={-10} position="insideBottom" />
+          </XAxis>
+          <YAxis tickFormatter={(tick) => "$" + tick.toLocaleString()}></YAxis>
+          <Tooltip
+            formatter={(value) =>
+              "$" + new Intl.NumberFormat("en").format(value)
+            }
+          />
+          <Legend
+            verticalAlign="top"
+            height={40}
+            payload={[
+              {
+                id: "totalContribution",
+                value: "Total Contribution",
+                type: "square",
+                color: color.totalContribution,
+              },
+              {
+                id: "total",
+                value: "Total Balance",
+                type: "square",
+                color: color.totalBalance,
+              },
+            ]}
+          />
+          <Area
+            type="monotone"
+            dataKey="totalContribution"
+            name="Total Contribution"
+            stackId="1"
+            stroke="#0"
+            fill={color.totalContribution}
+          />
+          <Area
+            type="monotone"
+            dataKey="total"
+            name="Total"
+            stackId="1"
+            stroke="#0"
+            fill={color.totalBalance}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </div>
   );
-
-  return renderGraph;
 }
 
 export default RothGraph;
