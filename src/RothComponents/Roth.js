@@ -8,8 +8,11 @@ function Roth() {
   return (
     <div className="container">
       <Header />
-      <RothForm />
-      <RothGraph />
+      <div className="graph-container">
+        <RothForm />
+        <hr />
+        <RothGraph />
+      </div>
       <RothAnalytics />
     </div>
   );
