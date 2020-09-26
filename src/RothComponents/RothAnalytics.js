@@ -12,19 +12,24 @@ function RothAnalytics() {
   ).toLocaleString("en");
   return (
     retirementBalance > 0 && (
-      <div className="analytics-container">
-        <h2>Analytics</h2>
-        <h3>
-          Your retirement balance could be $<u>{retirementBalanceFormatted}</u>
-          <br />
-          Monthly Contribution: ${(annualContribution / 12).toFixed(2)}
-          <br />
-          Weekly Contribution: ${(annualContribution / 52).toFixed(2)}
-          <br />
-          Daily Contribution: ${(annualContribution / 365).toFixed(2)}
-          <br />
-          Total Contribution: ${totalContribution}
-        </h3>
+      <div className="row">
+        <div className="col-lg-1"></div>
+        <div className="analytics-container col-lg-10">
+          <h2>Analytics</h2>
+          <p>
+            Your retirement balance could be $
+            <u>{retirementBalanceFormatted}</u>
+            <br />
+            Monthly Contribution: ${(annualContribution / 12).toFixed(2)}
+            <br />
+            Weekly Contribution: ${(annualContribution / 52).toFixed(2)}
+            <br />
+            Daily Contribution: ${(annualContribution / 365).toFixed(2)}
+            <br />
+            Total Contribution: ${totalContribution}
+          </p>
+        </div>
+        <div className="col-lg-1"></div>
       </div>
     )
   );
