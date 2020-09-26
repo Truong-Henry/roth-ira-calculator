@@ -1,7 +1,7 @@
 import React from "react";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
-function Toggle({ theme, toggleTheme }) {
+function Toggle({ theme, themeToggler }) {
   const localTheme = window.localStorage.getItem("theme");
   const onLabel = (
     <svg
@@ -37,7 +37,7 @@ function Toggle({ theme, toggleTheme }) {
     <>
       <BootstrapSwitchButton
         checked={localTheme === "dark" ? true : false}
-        onChange={() => toggleTheme()}
+        onChange={() => themeToggler()}
         Style="border"
         onstyle="outline-light"
         offstyle="outline-dark"
