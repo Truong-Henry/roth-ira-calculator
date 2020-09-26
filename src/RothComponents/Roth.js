@@ -1,20 +1,21 @@
 import React from "react";
-import RothForm from "./RothForm";
-import RothGraph from "./RothGraph";
 import Header from "./Header";
+import Navbar from "./Navbar";
+import RothCalculator from "./RothCalculator";
 import RothAnalytics from "./RothAnalytics";
 
-function Roth() {
+function Roth({ toggle }) {
   return (
-    <div className="container">
-      <Header />
-      <div className="graph-container">
-        <RothForm />
+    <>
+      <Navbar toggle={toggle} />
+      <div className="container text-center">
+        <Header />
         <hr />
-        <RothGraph />
+        <RothCalculator />
+        <hr />
+        <RothAnalytics />
       </div>
-      <RothAnalytics />
-    </div>
+    </>
   );
 }
 
