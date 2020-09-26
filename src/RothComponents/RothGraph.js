@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { RothContext } from "./rothContext";
+import { lightTheme, darkTheme } from "../DarkModeComponents/Themes";
 
 import {
   ResponsiveContainer,
@@ -9,15 +10,18 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Label,
   Legend,
 } from "recharts";
 
 function RothGraph() {
   const { rothData } = useContext(RothContext);
+  const localTheme = window.localStorage.getItem("theme");
+  const toolTipBackground =
+    localTheme === "light" ? lightTheme.body : darkTheme.body;
   const color = {
     totalBalance: "#82ca9d",
     totalContribution: "#5bb1cd",
+    toolTipBackground: toolTipBackground,
   };
 
   return (
@@ -28,18 +32,17 @@ function RothGraph() {
           margin={{ top: 50, right: 50, left: 50, bottom: 50 }}
         >
           <CartesianGrid strokeDasharray="5" vertical={false} />
-          <XAxis dataKey="age" name="age">
-            <Label value="Age" offset={-10} position="insideBottom" />
-          </XAxis>
+          <XAxis dataKey="age" name="age" />
           <YAxis tickFormatter={(tick) => "$" + tick.toLocaleString()}></YAxis>
           <Tooltip
+            contentStyle={{ backgroundColor: color.toolTipBackground }}
             formatter={(value) =>
               "$" + new Intl.NumberFormat("en").format(value)
             }
           />
           <Legend
             verticalAlign="top"
-            height={40}
+            height={50}
             payload={[
               {
                 id: "totalContribution",
