@@ -7,4 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Open Sans", sans-serif;
     transition: all 0.50s linear;
   }
+  .recharts-cartesian-axis-tick-value {
+    fill: ${({ theme }) => theme.text} !important;
+  }
   `;
