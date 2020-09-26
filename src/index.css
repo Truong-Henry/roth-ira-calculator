@@ -6,6 +6,10 @@
   margin-top: 40px;
 }
 
+hr {
+  border-color: gray;
+}
+
 /* Remove arrows from number inputs */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
