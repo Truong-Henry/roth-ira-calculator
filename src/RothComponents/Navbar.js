@@ -1,9 +1,10 @@
 import React from "react";
 
-function Navbar({ toggle }) {
+function Navbar({ darkModeToggler }) {
   const localTheme = window.localStorage.getItem("theme");
   const navbarColor =
     localTheme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light";
+
   return (
     <nav className={"navbar navbar-expand-md " + navbarColor}>
       <a className="navbar-brand" href="/">
@@ -29,7 +30,7 @@ function Navbar({ toggle }) {
           </li>
         </ul>
         <ul className="navbar-nav ml-auto">
-          <span>{toggle}</span>
+          <span>{darkModeToggler}</span>
         </ul>
       </div>
     </nav>

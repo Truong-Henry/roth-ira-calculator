@@ -4,10 +4,10 @@ import Navbar from "./Navbar";
 import RothCalculator from "./RothCalculator";
 import RothAnalytics from "./RothAnalytics";
 
-function Roth({ toggle }) {
+function Roth({ darkModeToggler }) {
   return (
     <>
-      <Navbar toggle={toggle} />
+      <Navbar darkModeToggler={darkModeToggler} />
       <div className="container text-center">
         <Header />
         <hr />
