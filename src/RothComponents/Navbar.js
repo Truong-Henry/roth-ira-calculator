@@ -6,7 +6,7 @@ function Navbar({ darkModeToggler }) {
     localTheme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light";
 
   return (
-    <nav className={"navbar navbar-expand-md " + navbarColor}>
+    <nav className={"navbar navbar-expand-md fixed-top " + navbarColor}>
       <a className="navbar-brand" href="/">
         Roth IRA
       </a>
