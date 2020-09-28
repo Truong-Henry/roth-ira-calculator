@@ -1,7 +1,7 @@
 import React from "react";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
-function Toggle({ theme, themeToggler }) {
+function Toggler({ theme, themeToggler }) {
   const localTheme = window.localStorage.getItem("theme");
   const onLabel = (
     <svg
@@ -49,4 +49,4 @@ function Toggle({ theme, themeToggler }) {
   );
 }
 
-export default Toggle;
+export default Toggler;
