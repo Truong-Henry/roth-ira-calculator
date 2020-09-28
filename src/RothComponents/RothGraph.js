@@ -17,7 +17,7 @@ function RothGraph() {
   const { rothData } = useContext(RothContext);
   const localTheme = window.localStorage.getItem("theme");
   const toolTipBackground =
-    localTheme === "light" ? lightTheme.body : darkTheme.body;
+    localTheme !== "dark" ? lightTheme.body : darkTheme.body;
   const color = {
     totalBalance: "#82ca9d",
     totalContribution: "#5bb1cd",
