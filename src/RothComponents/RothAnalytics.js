@@ -3,13 +3,14 @@ import { RothContext } from "./rothContext";
 
 function RothAnalytics() {
   const { form, retirementBalance } = useContext(RothContext);
-  let annualContribution = form.annualContribution;
-
   const retirementBalanceFormatted = retirementBalance.toLocaleString("en");
+
+  let annualContribution = form.annualContribution;
   const totalContribution = (
     (form.retirementAge - form.currentAge + 1) *
     annualContribution
   ).toLocaleString("en");
+
   return (
     retirementBalance > 0 && (
       <div className="row">
