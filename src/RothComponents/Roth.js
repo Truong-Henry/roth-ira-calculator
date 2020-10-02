@@ -1,20 +1,27 @@
 import React from "react";
-import Header from "./Header";
+import { Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar";
+import Home from "./Home";
 import RothCalculator from "./RothCalculator";
-import RothAnalytics from "./RothAnalytics";
+import Resources from "./Resources";
 
 function Roth({ darkModeToggler }) {
   return (
     <>
       <Navbar darkModeToggler={darkModeToggler} />
-      <div className="container text-center">
-        <Header />
-        <hr />
-        <RothCalculator />
-        <hr />
-        <RothAnalytics />
-      </div>
+      <Switch>
+        <div className="container text-center">
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/calculator">
+            <RothCalculator />
+          </Route>
+          <Route path="/resources">
+            <Resources />
+          </Route>
+        </div>
+      </Switch>
     </>
   );
 }
