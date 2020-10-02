@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar({ darkModeToggler }) {
   const localTheme = window.localStorage.getItem("theme");
@@ -7,9 +8,9 @@ function Navbar({ darkModeToggler }) {
 
   return (
     <nav className={"navbar navbar-expand-md fixed-top " + navbarColor}>
-      <a className="navbar-brand" href="/">
+      <Link className="navbar-brand link" to="/">
         Roth IRA
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -23,10 +24,15 @@ function Navbar({ darkModeToggler }) {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">
-              Home
-            </a>
+          <li className="nav-item px-2">
+            <Link className="link" to="/calculator">
+              Calculator
+            </Link>
+          </li>
+          <li className="nav-item px-2">
+            <Link className="link" to="/resources">
+              Resources
+            </Link>
           </li>
         </ul>
         <ul className="navbar-nav ml-auto">
